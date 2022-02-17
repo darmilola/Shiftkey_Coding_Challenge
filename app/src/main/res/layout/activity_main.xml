@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_white"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        style="@style/TextAppearance.MdcTypographyStyles.Headline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:text="@string/main_activity_title"
+        android:textColor="@color/black" />
+
+    <TextView
+        style="@style/TextAppearance.MdcTypographyStyles.Headline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:text="@string/dallas_texas"
+        android:textColor="@color/grey" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/shift_item_recyclerview"
+        tools:listitem="@layout/shift_display_item"/>
+
+</LinearLayout>

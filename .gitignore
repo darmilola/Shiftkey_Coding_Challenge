@@ -1,0 +1,28 @@
+# These are some examples of commonly ignored file patterns.
+# You should customize this list as applicable to your project.
+# Learn more about .gitignore:
+#     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+
+# Android specific
+*.iml
+.gradle
+/local.properties
+/.idea/
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+/app/build
+/app/.idea
+/app/schemas
+.externalNativeBuild
+.cxx
+.gradle/
+*.apk
+
+

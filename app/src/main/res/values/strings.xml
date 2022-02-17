@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Coding Challenge</string>
+    <string name="main_activity_title">Available Shifts</string>
+    <string name="dallas_texas">Dallas Texas, TN</string>
+</resources>
