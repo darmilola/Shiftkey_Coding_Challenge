@@ -2,10 +2,15 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_padding">16dp</dimen>
     <dimen name="ten_dp">10dp</dimen>
-    <dimen name="shift_item_height">120dp</dimen>
+    <dimen name="five_dp">10dp</dimen>
+    <dimen name="forty_eight_dp">48dp</dimen>
+    <dimen name="three_dp">3dp</dimen>
+    <dimen name="shift_item_height">90dp</dimen>
     <dimen name="shift_item_card_margin">10dp</dimen>
-    <dimen name="shift_item_card_radius">10dp</dimen>
+    <dimen name="shift_item_card_radius">7dp</dimen>
     <dimen name="shift_item_card_padding">10dp</dimen>
     <dimen name="shift_item_small_image_size">24dp</dimen>
+    <dimen name="activity_toobar_size">55dp</dimen>
 </resources>

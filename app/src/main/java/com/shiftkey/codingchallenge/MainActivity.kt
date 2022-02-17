@@ -11,6 +11,7 @@ import android.os.Build
 import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -50,10 +51,17 @@ class MainActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this,RecyclerView.VERTICAL,false)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = layoutManager
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                layoutManager.orientation
+            )
+        )
+        adapter.notifyDataSetChanged()
     }
 
 
-    override fun onResume() {
+  /*  override fun onResume() {
         super.onResume()
         if (Build.VERSION.SDK_INT >= 21) {
             val window = this.window
@@ -62,5 +70,5 @@ class MainActivity : AppCompatActivity() {
             window.statusBarColor = ContextCompat.getColor(this,R.color.grey_white)
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
-    }
+    }*/
 }

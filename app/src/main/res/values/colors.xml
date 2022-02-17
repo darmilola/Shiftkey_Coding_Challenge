@@ -11,5 +11,7 @@
     <color name="transparent">#00000000</color>
     <color name="gold">#f7b900</color>
     <color name="grey">#919090</color>
+    <color name="light_grey">#EFEEEE</color>
     <color name="grey_white">#f4f4f4</color>
+    <color name="red">#F42E2E</color>
 </resources>
