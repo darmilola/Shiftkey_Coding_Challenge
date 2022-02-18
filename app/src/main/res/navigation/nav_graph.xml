@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/shiftDisplay">
+
+    <fragment
+        android:id="@+id/shiftDisplay"
+        android:name="com.shiftkey.codingchallenge.presentation.ShiftDisplayFragment"
+        android:label="fragment_shift_display"
+        tools:layout="@layout/fragment_shift_display">
+        <action
+            android:id="@+id/action_shiftDisplay_to_shiftDetails"
+            app:destination="@id/shiftDetails" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/shiftDetails"
+        android:name="com.shiftkey.codingchallenge.presentation.ShiftDetailFragment"
+        android:label="fragment_shift_details"
+        tools:layout="@layout/fragment_shift_detail"/>
+
+</navigation>
