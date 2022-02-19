@@ -31,7 +31,7 @@ class ShiftDisplayFragment : Fragment() {
     lateinit var layoutManager: LinearLayoutManager
     val arrayList = ArrayList<ShiftModel>()
     lateinit var mView: View
-    private val viewModel: ShiftViewModel by viewModels()
+    val viewModel: ShiftViewModel by viewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,12 +57,10 @@ class ShiftDisplayFragment : Fragment() {
 
         viewModel.loadShifts("Dallas,TX","list","2022-02-20","2022-02-25")
 
-
         viewModel.receivedShiftsLiveData.observe(
             viewLifecycleOwner,
-            Observer {
-                it?.let {
-                    when (it.status) {
+            {
+                when (it.status) {
                         Status.SUCCESS -> {
                             Log.e("initView: ", it.data.toString())
                             it.data?.let {
@@ -77,8 +75,6 @@ class ShiftDisplayFragment : Fragment() {
                         }
 
                     }
-
-                }
             }
         )
 
