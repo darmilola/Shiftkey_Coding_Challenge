@@ -28,7 +28,7 @@
                     android:text="Registered Nurse Needed"
                     android:textColor="@color/black"
                     android:gravity="center|left"
-                    style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                    android:textSize="@dimen/normal_text_size"
                     android:ellipsize="end"/>
 
                <androidx.appcompat.widget.LinearLayoutCompat

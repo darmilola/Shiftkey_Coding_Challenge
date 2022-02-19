@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/forty_eight_dp"
-    android:background="@color/white"
+    android:background="@color/secondary"
+    android:paddingLeft="@dimen/activity_horizontal_padding"
     android:gravity="center">
 
     <TextView
@@ -10,9 +11,9 @@
         android:layout_height="match_parent"
         android:maxLines="1"
         android:text="10th May 2022 -  20th June 2022"
-        android:textColor="@color/grey"
-        android:gravity="center"
-        style="@style/TextAppearance.MdcTypographyStyles.Body2"
+        android:textColor="@color/black"
+        android:gravity="center|left"
+        android:textSize="@dimen/medium_text_size"
         android:ellipsize="end"/>
 
 </LinearLayout>

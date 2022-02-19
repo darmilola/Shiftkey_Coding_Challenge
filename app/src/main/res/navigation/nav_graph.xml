@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/shiftDisplay"
-        android:name="com.shiftkey.codingchallenge.presentation.ShiftDisplayFragment"
+        android:name="com.shiftkey.codingchallenge.presentation.fragment.ShiftDisplayFragment"
         android:label="fragment_shift_display"
         tools:layout="@layout/fragment_shift_display">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/shiftDetails"
-        android:name="com.shiftkey.codingchallenge.presentation.ShiftDetailFragment"
+        android:name="com.shiftkey.codingchallenge.presentation.fragment.ShiftDetailFragment"
         android:label="fragment_shift_details"
         tools:layout="@layout/fragment_shift_detail"/>
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="pink_200">#F1588B</color>
-    <color name="pink_300">#ED467E</color>
-    <color name="pink_400">#EA296A</color>
+    <color name="primary_600">#4A6572</color>
+    <color name="primary_700">#344955</color>
+    <color name="primary_800">#232f34</color>
+    <color name="secondary">#f9aa33</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -16,4 +17,6 @@
     <color name="grey_white">#f4f4f4</color>
     <color name="red">#F42E2E</color>
     <color name="toolbar_color_control_normal">#ffffff</color>
+    <color name="yellow">#ffde03</color>
+    <color name="pink_complement">#58f1be</color>
 </resources>

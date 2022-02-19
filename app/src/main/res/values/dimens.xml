@@ -14,4 +14,7 @@
     <dimen name="shift_item_small_image_size">24dp</dimen>
     <dimen name="activity_toobar_size">55dp</dimen>
     <dimen name="app_bar_height">250dp</dimen>
+    <dimen name="shift_details_menu_height">100dp</dimen>
+    <dimen name="normal_text_size">17sp</dimen>
+    <dimen name="medium_text_size">15sp</dimen>
 </resources>

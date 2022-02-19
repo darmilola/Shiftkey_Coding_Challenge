@@ -1,17 +1,17 @@
-package com.shiftkey.codingchallenge.presentation
+package com.shiftkey.codingchallenge.presentation.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.shiftkey.codingchallenge.R
 import androidx.appcompat.widget.Toolbar
-
+import androidx.fragment.app.Fragment
+import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.google.android.material.transition.platform.MaterialSharedAxis
+import com.shiftkey.codingchallenge.R
 
 class ShiftDetailFragment : Fragment() {
 
@@ -30,6 +30,9 @@ class ShiftDetailFragment : Fragment() {
     }
 
     private fun initView(){
+
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
 
         val toolbar: Toolbar = mView.findViewById(R.id.toolbar) as Toolbar
         (activity as AppCompatActivity?)!!.setSupportActionBar(toolbar)

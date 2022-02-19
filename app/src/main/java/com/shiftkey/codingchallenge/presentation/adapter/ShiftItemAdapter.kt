@@ -1,4 +1,4 @@
-package com.shiftkey.codingchallenge.presentation
+package com.shiftkey.codingchallenge.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,17 +7,17 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.shiftkey.codingchallenge.R
+import com.shiftkey.codingchallenge.domain.model.ShiftModel
+import com.shiftkey.codingchallenge.utils.Constants
 
 class ShiftItemAdapter (
     private val shiftList: ArrayList<ShiftModel>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val TYPE_HEADER = 1
-    private val TYPE_ITEM = 2
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if(viewType == TYPE_HEADER){
+        if(viewType == Constants.SHIFT_ITEM_TYPE_HEADER){
             val view: View = LayoutInflater.from(parent.context)
                 .inflate(R.layout.shift_display_item_header, parent, false)
             return HeaderViewHolder(view)
@@ -39,11 +39,11 @@ class ShiftItemAdapter (
 
 
     override fun getItemViewType(position: Int): Int {
-        return if (shiftList[position].type == 1) {
-            TYPE_HEADER
+        return if (shiftList[position].viewType == Constants.SHIFT_ITEM_TYPE_HEADER) {
+            Constants.SHIFT_ITEM_TYPE_HEADER
         }
         else{
-            TYPE_ITEM
+            Constants.SHIFT_ITEM_TYPE_ITEM
         }
     }
 
