@@ -3,5 +3,6 @@ package com.shiftkey.codingchallenge.utils
 enum class Status {
     SUCCESS,
     ERROR,
-    LOADING
+    LOADING,
+    N0_NETWORK
 }

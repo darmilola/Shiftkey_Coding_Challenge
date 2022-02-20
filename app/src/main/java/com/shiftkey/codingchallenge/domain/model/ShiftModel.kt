@@ -18,10 +18,17 @@ data class ShiftModel(
     @field:SerializedName("skill") val skill: SkillModel?,
     @field:SerializedName("localized_specialty") val localizedSpecialty: LocalizedSpecialtyModel?){
 
-    var viewType: Int = Constants.SHIFT_ITEM_TYPE_HEADER
+    var viewType: Int = Constants.SHIFT_ITEM_TYPE_ITEM
+    var startDate: String = ""
+    var endDate: String = ""
 
     constructor(mViewType: Int) : this(1,"","","","","",false,false,"",0,null,null,null){
         this.viewType = mViewType
+    }
+
+    constructor(startDate: String, endDate: String) : this(Constants.SHIFT_ITEM_TYPE_HEADER){
+        this.startDate = startDate
+        this.endDate = endDate
     }
 
 

@@ -7,6 +7,7 @@ import com.shiftkey.codingchallenge.data.repository.ShiftRepositoryImpl
 import com.shiftkey.codingchallenge.data.source.remote.RetrofitService
 import com.shiftkey.codingchallenge.domain.repository.ShiftRepository
 import com.shiftkey.codingchallenge.utils.Constants.BASE_URL
+import com.shiftkey.codingchallenge.utils.DateUtil
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -47,6 +48,13 @@ class MainModule {
         retrofitService: RetrofitService
     ): ShiftRepository {
         return ShiftRepositoryImpl(retrofitService)
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideDateUtil(): DateUtil {
+        return DateUtil()
     }
 
 

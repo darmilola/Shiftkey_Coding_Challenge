@@ -16,6 +16,10 @@ data class Resource<out T>(val status: Status, val data: T?, val message: CharSe
             return Resource(Status.LOADING, data, null)
         }
 
+        fun <T> no_network(data: T?): Resource<T> {
+            return Resource(Status.N0_NETWORK, data, null)
+        }
+
     }
 
 }

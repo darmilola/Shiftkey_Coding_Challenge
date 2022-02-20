@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:maxLines="1"
+        android:id="@+id/shift_item_header_text"
         android:text="10th May 2022 -  20th June 2022"
         android:textColor="@color/black"
         android:gravity="center|left"

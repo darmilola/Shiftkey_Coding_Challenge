@@ -19,10 +19,10 @@ class DateUtil {
         return dateFormat!!.format(date)
     }
 
-    fun getNextStartDate(dateString: String): String {
+    fun getNextStartDate(previousEndDateString: String): String {
         val c = Calendar.getInstance()
         try {
-            c.time = dateFormat!!.parse(dateString)
+            c.time = dateFormat!!.parse(previousEndDateString)
         } catch (e: ParseException) {
             e.printStackTrace()
         }
@@ -45,7 +45,7 @@ class DateUtil {
         val regex = "(\\d{4}-\\d{2}-\\d{2})"
         val m: Matcher = Pattern.compile(regex).matcher(dateString)
         if (m.find()) {
-            val date = dateFormat!!.parse(m.group(1))
+            val date = m.group(1)
             return date.toString()
         }
         return ""
@@ -60,9 +60,18 @@ class DateUtil {
         return ""
     }
 
-    fun formatDateIn12HourFormat(dateString: String): String {
-        val dateFormat: DateFormat = SimpleDateFormat("dd-MM-yyyy hh.mm aa")
-        return dateFormat.format(dateString).toString()
+    fun formatDateTimeIn12HourFormat(dateString: String): String {
+        val inputFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm")
+        val outputFormat: DateFormat = SimpleDateFormat("dd MMM, yyyy hh:mm aa")
+        val date = inputFormat.parse(dateString)
+        return outputFormat.format(date)
+    }
+
+    fun formatDateInLiteralFormat(dateString: String): String {
+        val inputFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val outputFormat: DateFormat = SimpleDateFormat("dd MMM, yyyy")
+        val date = inputFormat.parse(dateString)
+        return outputFormat.format(date)
     }
 
 }
