@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:id="@+id/error_occurred_layout_root"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="@dimen/issue_image_size"
+        android:layout_height="@dimen/issue_image_size"
+        android:src="@drawable/error_notice_virus_warning_icon__512"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/normal_text_size"
+        android:gravity="center"
+        android:textColor="@color/grey"
+        android:fontFamily="@font/open_sans"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="@string/error_occurred_text"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        android:id="@+id/error_occurred_retry"
+        android:textSize="@dimen/normal_text_size"
+        android:fontFamily="@font/open_sans"
+        android:text="Retry"/>
+
+</LinearLayout>

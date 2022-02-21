@@ -47,7 +47,8 @@
                     android:text="Central"
                     android:textColor="@color/black"
                     android:gravity="center|left"
-                    android:textSize="17sp"
+                    android:id="@+id/shift_detail_timezone"
+                    android:textSize="@dimen/normal_text_size"
                     android:ellipsize="end"/>
 
                 <TextView
@@ -105,7 +106,8 @@
                     android:text="Is Premium Rate"
                     android:textColor="@color/black"
                     android:gravity="center|left"
-                    android:textSize="17sp"
+                    android:id="@+id/shift_detail_is_premium_rate"
+                    android:textSize="@dimen/normal_text_size"
                     android:ellipsize="end"/>
 
                 <TextView
@@ -163,7 +165,8 @@
                     android:text="Not Covid"
                     android:textColor="@color/black"
                     android:gravity="center|left"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/normal_text_size"
+                    android:id="@+id/shift_detail_is_covid"
                     android:ellipsize="end"/>
 
                 <TextView
@@ -220,8 +223,9 @@
                     android:maxLines="1"
                     android:text="Day Shift"
                     android:textColor="@color/black"
+                    android:id="@+id/shift_detail_shift_kind"
                     android:gravity="center|left"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/normal_text_size"
                     android:ellipsize="end"/>
 
                 <TextView
@@ -280,7 +284,8 @@
                     android:text="Indoor Facility"
                     android:textColor="@color/black"
                     android:gravity="center|left"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/normal_text_size"
+                    android:id="@+id/shift_detail_facility_type"
                     android:ellipsize="end"/>
 
                 <TextView
@@ -340,7 +345,8 @@
                     android:text="Long Term Care"
                     android:textColor="@color/black"
                     android:gravity="center|left"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/normal_text_size"
+                    android:id="@+id/shift_detail_skill_name"
                     android:ellipsize="end"/>
 
                 <TextView
@@ -399,7 +405,8 @@
                     android:text="Certified Nursing Aide"
                     android:textColor="@color/black"
                     android:gravity="center|left"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/normal_text_size"
+                    android:id="@+id/shift_detail_specialty_name"
                     android:ellipsize="end"/>
 
                 <TextView
@@ -461,6 +468,7 @@
                     android:text="15 June 2022 11am"
                     android:textColor="@color/black"
                     android:gravity="center|left"
+                    android:id="@+id/shift_details_start_date"
                     android:textSize="17sp"
                     android:ellipsize="end"/>
 

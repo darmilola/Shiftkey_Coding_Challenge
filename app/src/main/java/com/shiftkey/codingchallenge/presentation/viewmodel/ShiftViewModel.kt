@@ -1,6 +1,7 @@
 package com.shiftkey.codingchallenge.presentation.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,14 +20,14 @@ class ShiftViewModel @Inject constructor(private val getShiftUseCase: GetShiftUs
     private val context = getApplication<Application>().applicationContext
 
 
-    fun loadShifts(address: String?, type: String?, startDate: String?, endDate: String?) {
+    fun loadShifts(address: String?, type: String?, startDate: String?) {
 
         if(!NetworkUtils.isNetworkAvailable(context)){
             receivedShiftsLiveData.value = Resource.no_network(null)
             return
         }
 
-        getShiftUseCase.provideParameters(address,type,startDate,endDate)
+        getShiftUseCase.provideParameters(address,type,startDate)
         receivedShiftsLiveData.value = Resource.loading(null)
         getShiftUseCase.execute(
             onSuccess = {
@@ -39,12 +40,12 @@ class ShiftViewModel @Inject constructor(private val getShiftUseCase: GetShiftUs
         )
     }
 
-    fun loadNextWeekShifts(address: String?, type: String?, startDate: String?, endDate: String?) {
+    fun loadNextWeekShifts(address: String?, type: String?, startDate: String?) {
         if(!NetworkUtils.isNetworkAvailable(context)){
             receivedShiftsLiveData.value = Resource.no_network(null)
             return
         }
-        getShiftUseCase.provideParameters(address,type,startDate,endDate)
+        getShiftUseCase.provideParameters(address,type,startDate)
         getShiftUseCase.execute(
             onSuccess = {
                 receivedShiftsLiveData.value = Resource.success(it)

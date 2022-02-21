@@ -1,6 +1,6 @@
 package com.shiftkey.codingchallenge.presentation.adapter
 
-import android.util.Log
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,10 +15,10 @@ import com.shiftkey.codingchallenge.domain.model.ShiftModel
 import com.shiftkey.codingchallenge.utils.Constants
 import com.shiftkey.codingchallenge.utils.DateUtil
 
+
 class ShiftItemAdapter (
     private val shiftList: MutableList<ShiftModel>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -44,16 +44,21 @@ class ShiftItemAdapter (
         val currentDisplayType = shiftModel.viewType
         if (currentDisplayType == Constants.SHIFT_ITEM_TYPE_LOADING) {
 
-        }
-        else if(currentDisplayType == Constants.SHIFT_ITEM_TYPE_HEADER){
+        } else if (currentDisplayType == Constants.SHIFT_ITEM_TYPE_HEADER) {
             val mHolder = holder as HeaderViewHolder
             mHolder.bind(shiftModel)
-        }
-        else{
+        } else {
             val mHolder = holder as DataViewHolder
             mHolder.bind(shiftModel)
+            mHolder.itemView.setOnClickListener {
+                var navController: NavController = Navigation.findNavController(mHolder.itemView)
+                val bundle = Bundle()
+                bundle.putSerializable("shiftDetail",shiftModel)
+                navController!!.navigate(R.id.action_shiftDisplay_to_shiftDetails, bundle)
+            }
         }
     }
+
 
     fun addListData(mShiftList: MutableList<ShiftModel>) {
         shiftList.addAll(mShiftList)
@@ -69,6 +74,11 @@ class ShiftItemAdapter (
         shiftList.remove(shiftModel)
         notifyDataSetChanged()
 
+    }
+
+    fun removeAllData(){
+        shiftList.clear()
+        notifyDataSetChanged()
     }
 
     fun removeLoader(){
@@ -104,16 +114,9 @@ class ShiftItemAdapter (
             itemBinding.shiftItemStartDateTime.text = dateUtil.formatDateInLiteralFormat(shiftModel.normalizedStartDateTime!!)
             itemBinding.shiftItemIsPremium.visibility = if (shiftModel.isPremiumRate == true) View.VISIBLE else View.GONE
         }
+    }
 
-        var navController: NavController? = null
-                init {
-                        itemView.setOnClickListener {
-                        navController = Navigation.findNavController(itemView)
-                        navController!!.navigate(R.id.action_shiftDisplay_to_shiftDetails)
-                    }
-                }
 
-        }
 
     class HeaderViewHolder(private val itemBinding: ShiftDisplayItemHeaderBinding) : RecyclerView.ViewHolder(itemBinding.root) {
 

@@ -6,5 +6,5 @@ object Constants {
     const val SHIFT_ITEM_TYPE_ITEM = 2
     const val SHIFT_ITEM_TYPE_LOADING = 3
     const val SEARCH_ADDRESS = "Dallas, TX"
-    const val SEARCH_TYPE = "list"
+    const val SEARCH_TYPE = "week"
 }

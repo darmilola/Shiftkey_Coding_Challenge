@@ -16,7 +16,7 @@ class GetShiftUseCase @Inject constructor(
     private var endDate: String? = null
 
 
-    fun provideParameters(address: String?, type: String?, startDate: String?, endDate: String?){
+    fun provideParameters(address: String?, type: String?, startDate: String?){
         this.address = address
         this.type = type
         this.startDate = startDate
@@ -24,6 +24,6 @@ class GetShiftUseCase @Inject constructor(
     }
 
     override fun buildUseCaseSingle(): Single<ShiftDataModel> {
-        return repository.getShifts(address,type, startDate, endDate)
+        return repository.getShifts(address,type, startDate)
     }
 }

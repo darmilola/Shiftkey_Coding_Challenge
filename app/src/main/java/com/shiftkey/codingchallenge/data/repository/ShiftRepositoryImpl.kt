@@ -8,7 +8,7 @@ import io.reactivex.Single
 class ShiftRepositoryImpl(
     private val retrofitService: RetrofitService
 ) : ShiftRepository {
-    override fun getShifts(address: String?, type: String?, startDate: String?, endDate: String?): Single<ShiftDataModel> {
-        return retrofitService.getShifts(address!!,type!!,startDate!!,endDate!!)
+    override fun getShifts(address: String?, type: String?, startDate: String?): Single<ShiftDataModel> {
+        return retrofitService.getShifts(address!!,type!!,startDate!!)
     }
 }

@@ -17,4 +17,5 @@
     <dimen name="shift_details_menu_height">100dp</dimen>
     <dimen name="normal_text_size">17sp</dimen>
     <dimen name="medium_text_size">15sp</dimen>
+    <dimen name="issue_image_size">200dp</dimen>
 </resources>

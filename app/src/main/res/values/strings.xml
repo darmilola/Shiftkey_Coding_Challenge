@@ -5,4 +5,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="shift_item_transition_title_name">shift_item_title</string>
     <string name="shift_detail_title_transition_name">shift_detail_title</string>
+    <string name="no_network_text">Network not available, please check your network connection</string>
+    <string name="error_occurred_text">Error occurred please try again </string>
+    <string name="is_premium_rate">Is Premium Rate</string>
+    <string name="not_premium_rate">Not Premium Rate</string>
+    <string name="is_covid">Is Covid</string>
+    <string name="not_covid">Not Covid</string>
 </resources>

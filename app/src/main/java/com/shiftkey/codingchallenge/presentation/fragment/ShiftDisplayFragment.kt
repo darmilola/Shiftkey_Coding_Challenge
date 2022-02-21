@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.compose.runtime.snapshots.Snapshot.Companion.observe
+import androidx.core.content.ContextCompat
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -73,18 +74,27 @@ class ShiftDisplayFragment : Fragment() {
                     if(!isLoading){
                         //check if is not currently loading more shifts
                         isLoading = true
-                        startDate = dateUtil.getNextStartDate(endDate)
-                        endDate = dateUtil.getEndDate(startDate)
                         adapter.addData(loadingModel)
-                        viewModel.loadNextWeekShifts(Constants.SEARCH_ADDRESS,Constants.SEARCH_TYPE,startDate,endDate)
+                        viewModel.loadNextWeekShifts(Constants.SEARCH_ADDRESS,Constants.SEARCH_TYPE,startDate)
                     }
-
                 }
             }
         })
 
+        binding.shiftItemRefresh.setOnClickListener {
+                refreshList()
+        }
 
-        viewModel.loadShifts(Constants.SEARCH_ADDRESS,Constants.SEARCH_TYPE,startDate,endDate)
+        binding.errorOccurredLayout.errorOccurredRetry.setOnClickListener {
+            refreshList()
+        }
+
+        binding.noNetworkLayout.noNetworkRetry.setOnClickListener {
+            refreshList()
+        }
+
+
+        viewModel.loadShifts(Constants.SEARCH_ADDRESS,Constants.SEARCH_TYPE,startDate)
 
 
         viewModel.receivedShiftsLiveData.observe(
@@ -95,18 +105,19 @@ class ShiftDisplayFragment : Fragment() {
                             it.data?.let {
                                     shiftDataModels : ShiftDataModel -> renderList(shiftDataModels)
                             }
+                            initializeNextDate() //Make date go the the next date
                             binding.shiftItemRecyclerview.visibility = View.VISIBLE
-                            binding.loadingBarLayout.visibility = View.GONE
+                            binding.loadingBarLayout.loadingBarLayoutRoot.visibility = View.GONE
                         }
                         Status.LOADING -> {
                             binding.shiftItemRecyclerview.visibility = View.GONE
-                            binding.loadingBarLayout.visibility = View.VISIBLE
+                            binding.loadingBarLayout.loadingBarLayoutRoot.visibility = View.VISIBLE
                         }
                         Status.ERROR -> {
-                            Log.e("initView: ", it.message as String)
+                            displayErrorLayout()
                         }
                         Status.N0_NETWORK -> {
-                        Log.e("initView: ", it.message as String)
+                            displayNoNetworkLayout()
                      }
                  }
              }
@@ -142,7 +153,16 @@ class ShiftDisplayFragment : Fragment() {
          authLoadingBarDisplay()
          val headerModel = ShiftModel(startDate,endDate)
          adapter.addData(headerModel)
-         adapter.addListData(shiftData.shiftData[0].shiftList!!)
+         for (availableShiftList in shiftData.shiftData){
+            adapter.addListData(availableShiftList.shiftList!!)
+         }
+    }
+
+    private fun refreshList(){
+        adapter.removeAllData()
+        startDate = dateUtil.getCurrentStartDate()
+        endDate = dateUtil.getEndDate(startDate)
+        viewModel.loadShifts(Constants.SEARCH_ADDRESS,Constants.SEARCH_TYPE,startDate)
     }
 
     private fun authLoadingBarDisplay(){
@@ -150,6 +170,41 @@ class ShiftDisplayFragment : Fragment() {
           isLoading = false
           adapter.removeLoader()
       }
+    }
+
+    private fun displayNoNetworkLayout(){
+        if(adapter.getDataList().size > 0) {
+
+            Toast.makeText(requireContext(),R.string.no_network_text,Toast.LENGTH_SHORT).show()
+            if(isLoading)adapter.removeLoader()
+            isLoading = false
+
+        } else{
+            binding.noNetworkLayout.noNetworkLayoutRoot.visibility = View.VISIBLE
+            binding.loadingBarLayout.loadingBarLayoutRoot.visibility = View.GONE
+            binding.errorOccurredLayout.errorOccurredLayoutRoot.visibility = View.GONE
+            binding.shiftItemRecyclerview.visibility = View.GONE
+        }
+    }
+
+    private fun displayErrorLayout(){
+        if(adapter.getDataList().size > 0) {
+
+            Toast.makeText(requireContext(),R.string.error_occurred_text,Toast.LENGTH_SHORT).show()
+            if(isLoading)adapter.removeLoader()
+            isLoading = false
+
+        } else{
+            binding.noNetworkLayout.noNetworkLayoutRoot.visibility = View.GONE
+            binding.loadingBarLayout.loadingBarLayoutRoot.visibility = View.GONE
+            binding.errorOccurredLayout.errorOccurredLayoutRoot.visibility = View.VISIBLE
+            binding.shiftItemRecyclerview.visibility = View.GONE
+        }
+    }
+
+    private fun initializeNextDate(){
+        startDate = dateUtil.getNextStartDate(startDate)
+        endDate = dateUtil.getEndDate(startDate)
     }
 
     override fun onDestroyView() {

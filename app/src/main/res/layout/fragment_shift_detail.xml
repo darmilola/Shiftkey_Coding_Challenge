@@ -55,6 +55,6 @@
                 android:theme="@style/ToolbarTheme"/>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
-    <include layout="@layout/details_scrolling_layout" />
+    <include layout="@layout/details_scrolling_layout" android:id="@+id/details_layout"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

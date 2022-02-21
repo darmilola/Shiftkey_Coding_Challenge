@@ -6,5 +6,4 @@ import com.shiftkey.codingchallenge.utils.Constants
 data class AvailableShiftsModel(
     @field:SerializedName("date") val shiftStartDate: String?,
     @field:SerializedName("shifts") val shiftList: MutableList<ShiftModel>?)  {
-
 }

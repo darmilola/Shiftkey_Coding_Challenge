@@ -2,6 +2,7 @@ package com.shiftkey.codingchallenge.domain.model
 
 import com.google.gson.annotations.SerializedName
 import com.shiftkey.codingchallenge.utils.Constants
+import java.io.Serializable
 
 data class ShiftModel(
     @field:SerializedName("shift_id") val id: Int,
@@ -16,7 +17,7 @@ data class ShiftModel(
     @field:SerializedName("within_distance") val withinDistance: Int?,
     @field:SerializedName("facility_type") val facilityType: FacilityTypeModel?,
     @field:SerializedName("skill") val skill: SkillModel?,
-    @field:SerializedName("localized_specialty") val localizedSpecialty: LocalizedSpecialtyModel?){
+    @field:SerializedName("localized_specialty") val localizedSpecialty: LocalizedSpecialtyModel?): Serializable{
 
     var viewType: Int = Constants.SHIFT_ITEM_TYPE_ITEM
     var startDate: String = ""

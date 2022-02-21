@@ -19,14 +19,14 @@ class DateUtil {
         return dateFormat!!.format(date)
     }
 
-    fun getNextStartDate(previousEndDateString: String): String {
+    fun getNextStartDate(dateString: String): String {
         val c = Calendar.getInstance()
         try {
-            c.time = dateFormat!!.parse(previousEndDateString)
+            c.time = dateFormat!!.parse(dateString)
         } catch (e: ParseException) {
             e.printStackTrace()
         }
-        c.add(Calendar.DAY_OF_MONTH, 1)
+        c.add(Calendar.DAY_OF_MONTH, 7)
         return dateFormat!!.format(c.time)
     }
 

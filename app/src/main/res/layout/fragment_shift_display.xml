@@ -41,6 +41,7 @@
                 android:layout_marginTop="@dimen/three_dp"
                 android:src="@drawable/refresh_arrows_multimedia_media_icon"
                 android:layout_alignParentRight="true"
+                android:id="@+id/shift_item_refresh"
                 android:tint="@color/white"/>
 
         </RelativeLayout>
@@ -53,17 +54,7 @@
         android:visibility="gone"
         android:id="@+id/shift_item_recyclerview"
         tools:listitem="@layout/shift_display_item"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:id="@+id/loading_bar_layout">
-
-        <ProgressBar
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:indeterminateTint="@color/secondary"/>
-
-    </LinearLayout>
+    <include layout="@layout/loading_layout" android:id="@+id/loading_bar_layout"/>
+    <include layout="@layout/no_network_layout" android:id="@+id/no_network_layout"/>
+    <include layout="@layout/error_layout" android:id="@+id/error_occurred_layout"/>
 </LinearLayout>
