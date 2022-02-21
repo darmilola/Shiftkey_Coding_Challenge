@@ -38,10 +38,10 @@ class ShiftDisplayFragment : Fragment() {
     lateinit var layoutManager: LinearLayoutManager
     val viewModel: ShiftViewModel by viewModels()
     val loadingModel = ShiftModel(Constants.SHIFT_ITEM_TYPE_LOADING)
-    val dateUtil: DateUtil = DateUtil()
-    var startDate = dateUtil.getCurrentStartDate()
-    var endDate = dateUtil.getEndDate(startDate)
-    var isLoading = false;
+    private var dateUtil: DateUtil? = null
+    var startDate: String = ""
+    var endDate: String = ""
+    var isLoading = false
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,6 +62,10 @@ class ShiftDisplayFragment : Fragment() {
     }
 
     private fun initView(){
+        dateUtil = DateUtil()
+        startDate = dateUtil!!.getCurrentStartDate()
+        endDate = dateUtil!!.getEndDate(startDate)
+        isLoading = false
         exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
         reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
         initRecyclerview()
@@ -93,9 +97,8 @@ class ShiftDisplayFragment : Fragment() {
             refreshList()
         }
 
-
+        adapter.removeAllData()
         viewModel.loadShifts(Constants.SEARCH_ADDRESS,Constants.SEARCH_TYPE,startDate)
-
 
         viewModel.receivedShiftsLiveData.observe(
             viewLifecycleOwner,
@@ -160,8 +163,8 @@ class ShiftDisplayFragment : Fragment() {
 
     private fun refreshList(){
         adapter.removeAllData()
-        startDate = dateUtil.getCurrentStartDate()
-        endDate = dateUtil.getEndDate(startDate)
+        startDate = dateUtil!!.getCurrentStartDate()
+        endDate = dateUtil!!.getEndDate(startDate)
         viewModel.loadShifts(Constants.SEARCH_ADDRESS,Constants.SEARCH_TYPE,startDate)
     }
 
@@ -203,8 +206,8 @@ class ShiftDisplayFragment : Fragment() {
     }
 
     private fun initializeNextDate(){
-        startDate = dateUtil.getNextStartDate(startDate)
-        endDate = dateUtil.getEndDate(startDate)
+        startDate = dateUtil!!.getNextStartDate(startDate)
+        endDate = dateUtil!!.getEndDate(startDate)
     }
 
     override fun onDestroyView() {

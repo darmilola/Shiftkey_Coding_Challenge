@@ -91,6 +91,10 @@ class ShiftItemAdapter (
         return shiftList;
     }
 
+    fun isEmpty(): Boolean  {
+        return shiftList.size == 0
+    }
+
 
     override fun getItemViewType(position: Int): Int {
        if (shiftList[position].viewType == Constants.SHIFT_ITEM_TYPE_HEADER) {

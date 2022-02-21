@@ -15,12 +15,12 @@ class DateUtilTest {
 
     @Test
     fun `Assert Next Start Date`() {
-        Assert.assertEquals(DateUtil().getNextStartDate("2022-02-20"), "2022-02-21")
+        Assert.assertEquals(DateUtil().getNextStartDate("2022-02-20"), "2022-02-26")
     }
 
     @Test
     fun `Assert End Date`() {
-        Assert.assertEquals(DateUtil().getEndDate("2022-03-20"), "2022-03-27")
+        Assert.assertEquals(DateUtil().getEndDate("2022-03-20"), "2022-03-26")
     }
 
     @Test

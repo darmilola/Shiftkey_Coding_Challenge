@@ -26,7 +26,7 @@ class DateUtil {
         } catch (e: ParseException) {
             e.printStackTrace()
         }
-        c.add(Calendar.DAY_OF_MONTH, 7)
+        c.add(Calendar.DAY_OF_MONTH, 6)
         return dateFormat!!.format(c.time)
     }
 
@@ -37,7 +37,7 @@ class DateUtil {
         } catch (e: ParseException) {
             e.printStackTrace()
         }
-        c.add(Calendar.DAY_OF_MONTH, 7)
+        c.add(Calendar.DAY_OF_MONTH, 6)
         return dateFormat!!.format(c.time)
     }
 

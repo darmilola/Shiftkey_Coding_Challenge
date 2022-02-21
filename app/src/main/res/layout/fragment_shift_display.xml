@@ -30,6 +30,7 @@
                 android:textColor="@color/white"
                 android:gravity="center|left"
                 android:layout_alignParentLeft="true"
+                android:id="@+id/shift_display_toolbar_title"
                 style="@style/TextAppearance.MdcTypographyStyles.Headline5"
                 android:ellipsize="end"/>
 
@@ -42,6 +43,7 @@
                 android:src="@drawable/refresh_arrows_multimedia_media_icon"
                 android:layout_alignParentRight="true"
                 android:id="@+id/shift_item_refresh"
+                android:contentDescription="Tap to refresh"
                 android:tint="@color/white"/>
 
         </RelativeLayout>
